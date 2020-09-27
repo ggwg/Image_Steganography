@@ -35,4 +35,5 @@ As you can imagine, if you combine both these techniques together you have a pre
 
 ## Demonstration
 ![Original Image (before encoding)](/images/original_image.JPG)
-Format: ![Alt Text](url)
+![Run the executable from the command line](images/1.JPG)
+
