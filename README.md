@@ -23,7 +23,9 @@ Furthermore, to enhance the security of the encryption process, we implemented a
    * [Introduction](#introduction)
    * [Table of Contents](#contents)
    * [What is Digital Image Steganography?](#whatis)
-   * [Demonstration](#demo)
+   * [Encoding Process](#encoding)
+   * [Encryption Process](#encryption)
+   * [Testing](#Testing)   
 <!--te-->
 
 ## <a name="whatis"></a>What is Digital Image Steganography?
