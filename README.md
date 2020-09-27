@@ -61,9 +61,15 @@ When we decode the image with an incorrect passcode, we don't get the original S
 
 **5. Decoding the Image (Correct Password)**
 
-When we decode the image with an incorrect passcode, we don't get the original Shakespeare text document back - that's because the decryption failed.
+We run the executable again, this time specifying the correct password. Hurrah - it works, and we got Shakespeare's text file back!
 
 ![Extract original file (success)](/images/correct_password.JPG)
+
+**6. Quality Comparison**
+
+Here is a comparison of image quality between the original image and the image with Shakespeare's works encoded inside it:
+
 ![Comparison](/images/comparison.jpg)
+
 
 
