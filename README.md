@@ -1,4 +1,4 @@
-# Image_Steganography
+# <a name="introduction"></a>Image_Steganography
 ### *Digital Image Steganography with Password Encryption*
 
 An image steganography encoder which can hide files within the least significant bits of an image. The specified file can be optionally encrypted (using the AES encryption schema) with a password prior to being encoded within the target image.
@@ -8,19 +8,10 @@ This project was created without the use of any existing libraries in C, as part
 ## Table of Contents
 
 <!--ts-->
-   * [gh-md-toc](#gh-md-toc)
-   * [Table of contents](#table-of-contents)
-   * [Installation](#installation)
+   * [Introduction](#introduction)
    * [Usage](#usage)
       * [STDIN](#stdin)
-      * [Local files](#local-files)
-      * [Remote files](#remote-files)
-      * [Multiple files](#multiple-files)
-      * [Combo](#combo)
-      * [Auto insert and update TOC](#auto-insert-and-update-toc)
-      * [GitHub token](#github-token)
    * [Tests](#tests)
-   * [Dependency](#dependency)
 <!--te-->
 
 ## What is Digital Image Steganography?
