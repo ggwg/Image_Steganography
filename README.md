@@ -3,7 +3,7 @@
 
 **An image steganography encoder which can hide files within the least significant bits of an image. The specified file can be optionally encrypted (using the AES encryption schema) with a password prior to being encoded within the target image.**
 
-***This project was created without the use of any existing libraries in C, as part of the Imperial College London's first year final group project.***
+*This project was created without the use of any existing libraries in C, as part of the Imperial College London's first year final group project.*
 
 Cryptography and steganography are both highly effective ways of protecting secret information - whilst steganography deals with hiding the existence of data, cryptography is able to hide the meaning of data. In the case that our encoding mechanism could be detected by some sort of AI program and somehow decoded, we agreed upon the need for a high level of encryption to prevent the original file from being deciphered. Therefore we decided that each byte of data to encode will be encrypted using a secure yet efficient encryption algorithm before encoding it into the image.
 
@@ -23,7 +23,6 @@ Furthermore, to enhance the security of the encryption process, we implemented a
    * [Introduction](#introduction)
    * [Table of Contents](#contents)
    * [What is Digital Image Steganography?](#whatis)
-      * [STDIN](#stdin)
    * [Demonstration](#demo)
 <!--te-->
 
@@ -89,7 +88,7 @@ Before encryption and decryption can begin, the specified password must be conve
 
 Once we have calculated the key from the password, we can begin the AES encryption process. The Rijndael block cipher algorithms won the 2001 National Institute of Standards and Technology’s, and thus became dubbed the Advanced Encryption Standard. The image below gives a simple visual representation of the inner workings of the AES encryption algorithm.
 
-![Password Hashing Algorithm](/images/password.JPG)
+![Password Hashing Algorithm](/images/aes.JPG)
 
 As a very brief summary of AES encryption, 16 bytes of data, which can internally be thought of as a 4x4 matrix, are first XORed with the round key in a process called add_round_key(). Next, the result then goes through a sequence of sub_bytes(), shift_rows(), mix_columns() and add_round_key() processes a total of N times, with N being 10 for AES-128. The sub_bytes() operation represents a non-linear substitution step, whilst shift_rows() represents a transposition step whereby each row of the 4x4 matrix is shifted cyclically a different number of times. mix_columns() was particularly difficult to implement, and represents matrix multiplication by a predetermined matrix inside the Galois Field 2 8 - this provides diffusion in the columns. In the final round, the mix_columns() operation is not performed.
 
@@ -98,3 +97,11 @@ Crucially, the key changes continuously to ensure secure encryption, hence the n
 The decryption processes involves backtracking by undoing each step of the encryption process. Every operation used for encryption has its own inverse, and undoing XOR was especially easy since it is its own inverse. However, reversing the key schedule process proved to be especially challenging; not only was it required to calculate the key after 10 rounds, but inverting the round key process also proved to be highly challenging, since each version of the new key is calculated using the previous key.
 
 As a result of our rigorous password hashing and complex encryption process, if a user enters even a single character of the password process incorrectly then the resulting file output will be completely unreadable. Furthermore, large files of several Megabytes can be encrypted and encoded (or decoded and decrypted) within seconds, due to the highly efficient algorithms we implemented.
+
+# <a name="testing"></a>Testing
+
+Various tests were performed to ensure optimal performance and reliablilty.
+
+- **Memory Checks** - We regularly used Valgrind to identify any memory leaks and ensure all allocated memory was being freed before program termination. There are no memory leaks in our extension.
+
+- **Encoding & Decoding** - As encoding and decoding are the inverse of each other, we were able to test how well our extension was doing by first encoding a file, and checking if decoding the result gave us back the original file. We encoded and decoded a large range of file types, including .txt, .pdf, .zip and even .wav files and concluded that in every case decoding the image resulted in a perfect replica of the original file.
