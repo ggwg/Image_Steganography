@@ -35,5 +35,10 @@ As you can imagine, if you combine both these techniques together you have a pre
 
 ## Demonstration
 ![Original Image (before encoding)](/images/original_image.JPG)
-![Run the executable from the command line](images/1.JPG)
+![Run the executable from the command line](/images/1.JPG)
+![Encoded Image](/images/encoded_image.JPG)
+![Extract original file (failed)](/images/incorrect_password.JPG)
+![Extract original file (success)](/images/correct_password.JPG)
+![Comparison](/images/comparison.jpg)
+
 
