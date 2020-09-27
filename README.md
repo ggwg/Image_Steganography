@@ -3,7 +3,7 @@
 
 **An image steganography encoder which can hide files within the least significant bits of an image. The specified file can be optionally encrypted (using the AES encryption schema) with a password prior to being encoded within the target image.**
 
-*This project was created without the use of any existing libraries in C, as part of the Imperial College London's first year final group project.*
+*This project was created as part of the Imperial College London's first year final group project, without the use of any existing libraries in C.*
 
 Cryptography and steganography are both highly effective ways of protecting secret information - whilst steganography deals with hiding the existence of data, cryptography is able to hide the meaning of data. In the case that our encoding mechanism could be detected by some sort of AI program and somehow decoded, we agreed upon the need for a high level of encryption to prevent the original file from being deciphered. Therefore we decided that each byte of data to encode will be encrypted using a secure yet efficient encryption algorithm before encoding it into the image.
 
