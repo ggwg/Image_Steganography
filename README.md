@@ -1,4 +1,31 @@
 # <a name="introduction"></a>Image_Steganography
+
+<!--ts-->
+   * [Introduction](#introduction)
+   * [Building/Running](#running)
+   * [Table of Contents](#contents)
+   * [What is Digital Image Steganography?](#whatis)
+   * [Encoding Process](#encoding)
+   * [Encryption Process](#encryption)
+   * [Testing](#Testing)   
+<!--te-->
+
+## <a name="running"></a>Building + Running the program
+
+First, clone the program. Ensure you are on a Unix machine - then, compile the files by running the command `make`.
+
+**Encoding a secret file within an image**
+
+First prepare a `.bmp` file to be the parent image, and any other file to be the secret file. Specify an output file name and optional password for the encryption process.
+
+`Encoding: ./extension -e -i <*.bmp> <any file> -o <*.bmp> -p <password>`
+
+**Decoding a secret file from an image**
+
+Specify as an argument the `.bmp` image which contains the secret file embedded inside it. If a password was used to encrypt the secret file, add as an optional parameter the password.
+
+`Decoding: ./extension -d -i <*.bmp> -p <password>`
+
 ## Digital Image Steganography with Password Encryption
 
 **An image steganography encoder which can hide files within the least significant bits of an image. The specified file can be optionally encrypted (using the AES encryption schema) with a password prior to being encoded within the target image.**
@@ -9,22 +36,7 @@ We discussed the advantages of some major encryption algorithms and considered w
 
 Furthermore, to enhance the security of the encryption process, we implemented a password encryption process. This password can be optionally specified using the flag `-p <password>`, and this password is converted into the starting key for the encryption process using a hashing algorithm. Our program is able to encode files of literally any data type. An example is in `./test/out/shakespeare.bmp`. This image has the entire works of Shakespeare (in the form of a `.txt` file) encoded within itself using the password `romeo`. To prove this, run in terminal `./extension -d -i test/out/shakespeare.bmp -p romeo` and you will find a file `full_shakespeare.txt` has appeared.
 
-**The program can be run using the following terminal commands (Note : password is optional):**
-
-`Encoding: ./extension -e -i <*.bmp> <any file> -o <*.bmp> -p <password>`
-
-`Decoding: ./extension -d -i <*.bmp> -p <password>`
-
 ## <a name="contents"></a>Table of Contents
-
-<!--ts-->
-   * [Introduction](#introduction)
-   * [Table of Contents](#contents)
-   * [What is Digital Image Steganography?](#whatis)
-   * [Encoding Process](#encoding)
-   * [Encryption Process](#encryption)
-   * [Testing](#Testing)   
-<!--te-->
 
 ## <a name="whatis"></a>What is Digital Image Steganography?
 
