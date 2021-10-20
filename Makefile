@@ -4,6 +4,7 @@ LIB_DIR = lib/
 INC_DIR = inc/
 OBJ_DIR = obj/
 DBG_DIR = debug/
+TST_DIR = test/
 
 # C Compiler options
 CC 	   = gcc
@@ -13,16 +14,19 @@ LFLAGS = -L$(LIB_DIR)
 
 # Files to use in compilation
 OBJCTS = bmp.o decode.o encode.o main.o utils.o encrypt.o encrypt_utils.o
+# Testing files
+TST_OBJCTS = encrypt.o encrypt_utils.o
 # Target output
 TARGET = extension
+UNITTEST = tests 
 
 all: $(TARGET)
 
 clean:
-	rm -rf $(OBJ_DIR)/*.o $(TARGET)
+	rm -rf $(OBJ_DIR)/*.o $(TST_DIR)/*.o $(TARGET) $(UNITTEST)
 
-test: 
-	sh test.sh
+$(UNITTEST): $(TST_DIR)tests.o $(addprefix $(OBJ_DIR), $(TST_OBJCTS))
+	$(CC) $(CFLAGS) $(IFLAGS) $(LFLAGS) -o $@ $^
 
 test-clean: 
 	rm -rf $(DBG_DIR)/*.out $(DBG_DIR)/*.txt
